@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+@layer base {
+  :root {
+    /* Olas Inn - Brand Palette */
+    /* Background: #f4efe5 */
+    --background: 40 33% 93%;
+    --foreground: 229 49% 41%;
+
+    /* Card on cream background */
+    --card: 0 0% 100%;
+    --card-foreground: 229 49% 41%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 229 49% 41%;
+
+    /* Primary - Deep Blue #35459e */
+    --primary: 229 49% 41%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Gold #c7aa56 */
+    --secondary: 43 48% 56%;
+    --secondary-foreground: 229 49% 20%;
+
+    /* Muted tones - cream variations */
+    --muted: 40 25% 88%;
+    --muted-foreground: 229 20% 45%;
+
+    /* Accent - Gold highlight */
+    --accent: 43 48% 56%;
+    --accent-foreground: 229 49% 20%;
+
+    /* Success - Blue derived */
+    --success: 229 49% 41%;
+    --success-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 40 20% 85%;
+    --input: 40 20% 85%;
+    --ring: 229 49% 41%;
+
+    --radius: 0.5rem;
+
+    /* WhatsApp/CTA Button - Primary Blue */
+    --whatsapp: 229 49% 41%;
+    --whatsapp-foreground: 0 0% 100%;
+
+    /* CTA Red #cb3737 */
+    --cta-red: 0 65% 50%;
+    --cta-red-foreground: 0 0% 100%;
+
+    /* Gradients */
+    --gradient-ocean: linear-gradient(135deg, hsl(229 49% 41%), hsl(229 49% 51%));
+    --gradient-sand: linear-gradient(180deg, hsl(40 33% 93%), hsl(40 25% 88%));
+    --gradient-gold: linear-gradient(135deg, hsl(43 48% 56%), hsl(43 55% 50%));
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(229 49% 20% / 0.08);
+    --shadow-card: 0 8px 30px -8px hsl(229 49% 20% / 0.12);
+    --shadow-float: 0 12px 40px -12px hsl(229 49% 20% / 0.18);
+
+    /* Sidebar */
+    --sidebar-background: 40 33% 93%;
+    --sidebar-foreground: 229 49% 41%;
+    --sidebar-primary: 229 49% 41%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 43 48% 56%;
+    --sidebar-accent-foreground: 229 49% 20%;
+    --sidebar-border: 40 20% 85%;
+    --sidebar-ring: 229 49% 41%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .trust-badge {
+    @apply inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary text-sm font-medium text-foreground/80;
+  }
+
+  .card-room {
+    @apply bg-card rounded-lg overflow-hidden shadow-card border border-border/50 transition-all duration-300 hover:shadow-float hover:-translate-y-1;
+  }
+
+  .btn-whatsapp {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-4 rounded-lg font-semibold text-whatsapp-foreground transition-all duration-300 hover:scale-[1.02] active:scale-[0.98];
+    background: hsl(var(--whatsapp));
+    box-shadow: var(--shadow-card);
+  }
+
+  .btn-whatsapp:hover {
+    box-shadow: var(--shadow-float);
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-ocean);
+  }
+
+  .fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .pulse-soft {
+    animation: pulseSoft 4s ease-in-out infinite;
+  }
+
+  @keyframes pulseSoft {
+    0%, 100% {
+      box-shadow: 0 0 0 0 hsl(var(--whatsapp) / 0.3);
+    }
+    50% {
+      box-shadow: 0 0 0 8px hsl(var(--whatsapp) / 0);
+    }
+  }
+
+  /* Hero section styling */
+  .hero-overlay {
+    background: linear-gradient(
+      to bottom,
+      hsl(229 49% 41% / 0.85) 0%,
+      hsl(229 49% 41% / 0.7) 100%
+    );
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
